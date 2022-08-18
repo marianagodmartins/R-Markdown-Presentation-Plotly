@@ -1,0 +1,50 @@
+---
+title: "Plotly"
+author: "Mariana Martins"
+date: '18/08/2022'
+format: revealjs
+editor: visual
+---
+
+## Context
+
+Create a web page presentation using R Markdown that features a plot created with Plotly. Host your webpage on either GitHub Pages, RPubs, or NeoCities. Your webpage must contain the date that you created the document, and it must contain a plot created with Plotly. We would love to see you show off your creativity!
+
+## Code
+
+We are going to plot 'Mileage per gallon' vs 'Weight (1000 lbs)', by '\# of cylinders'
+
+`library(plotly)`
+
+`f <- list( family = "Courier New, monospace", size = 11,   color = "#6e6e6e" )`
+
+`x <- list(title = "Weight (1000 lbs)",   titlefont = f )`
+
+`y <- list( title = "Mileage per gallon",   titlefont = f )`
+
+```{r}
+library(plotly)
+```
+
+```{r include= TRUE}
+f <- list(
+  family = "Courier New, monospace",
+  size = 11,   color = "#6e6e6e" )
+x <- list(
+  title = "Weight (1000 lbs)",   titlefont = f )
+
+y <- list(
+  title = "Mileage per gallon",   titlefont = f )
+```
+
+## Plotly code
+
+`plot_ly(mtcars, x = mtcars$wt, y=mtcars$mpg, mode="markers",   type="scatter",color=as.factor(mtcars$cyl), size=mtcars$hp ) %>%   layout(xaxis=x, yaxis=y)`
+
+## Plotly Result
+
+```{r include= TRUE}
+plot_ly(mtcars, x = mtcars$wt, y=mtcars$mpg, mode="markers", 
+        type="scatter",color=as.factor(mtcars$cyl), size=mtcars$hp ) %>%   
+        layout(xaxis=x, yaxis=y)
+```
